@@ -1,0 +1,10 @@
+<h1 mat-dialog>
+   {{ deleteMessage.title }}
+</h1>
+<div mat-dialog-content>
+    {{ deleteMessage.content }}
+</div>
+<div mat-dialog-actions align="end">
+    <button mat-button [mat-dialog-close]="false" cdkFocusInitial>Nein</button>
+    <button mat-button [mat-dialog-close]="true">Löschen</button>
+</div>

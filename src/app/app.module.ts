@@ -1,0 +1,42 @@
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { APP_BASE_HREF } from '@angular/common';
+
+// Material
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+
+
+import { AppComponent } from './app.component';
+import { TasksModule } from './tasks/tasks.module';
+import { RxjsComponent } from './example/rxjs/rxjs.component';
+import { AnimationComponent } from './example/animation/animation.component';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    RxjsComponent,
+    AnimationComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    // components
+    TasksModule,
+    // Material
+    MatToolbarModule,
+    MatButtonModule,
+  ],
+  providers: [
+    { provide: APP_BASE_HREF, useValue: '/tasks-list' }
+  ],
+  bootstrap: [AppComponent],
+  exports: []
+})
+export class AppModule { }

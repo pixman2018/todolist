@@ -1,0 +1,38 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Angular lernen",
+      "done": true
+    },
+    {
+      "id": 2,
+      "title": "TypeScript lernen",
+      "done": false
+    },
+    {
+      "id": 3,
+      "title": "EcmaScript 2015-2019 lernen",
+      "done": false
+    },
+    {
+      "id": 4,
+      "title": "Angular vertiefen",
+      "done": false
+    },
+    {
+      "id": 5,
+      "title": "RxJs lernen",
+      "done": false
+    },
+    {
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "id": 8
+    }
+  ]
+}

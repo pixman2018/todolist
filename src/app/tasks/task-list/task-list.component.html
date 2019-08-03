@@ -1,0 +1,33 @@
+<section class="task-list">
+    <fk-message [message]="message" [error]="isError" *ngIf="showMessage"></fk-message>
+    <div class="container">
+        <h1 class="mat-display-1">
+            Task Liste <span class="mat-h1 colorBlack60">({{ countTask }}/ {{ countTask - countTaskDone }})</span>
+        </h1>
+        <!-- <mat-divider [inset]="true"></mat-divider> -->
+
+        <!-- <fk-task-item *ngFor="let task of tasks;" [task]="task"></fk-task-item> -->
+        <mat-list>
+            <mat-list-item class="list-item" *ngFor="let task of tasks;">   
+                <h3 matline>{{ task.title }}</h3>
+                <p>{{ task.id}}</p>
+                <p>{{task.done}}</p>
+                <div class="spacer"></div>
+                <div class="task-navigate" >
+                    <button aria-label="Task löschen" (click)="deleteTask(task)" mat-icon-button color="warn" >
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                    <button aria-label="Task bearbeiten" [routerLink]="['/editTask', task.id]" mat-icon-button color="primary" >
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                </div>
+                <mat-checkbox [(ngModel)]="task.done" (click)="changeTaskDone(task)" color="primary"></mat-checkbox>
+            </mat-list-item>
+        </mat-list>
+
+        <button class="btn addBtn" routerLink="{{addTaskLink}}" mat-fab color="primary" >
+            <mat-icon>add</mat-icon>
+        </button>
+        
+    </div>
+</section>

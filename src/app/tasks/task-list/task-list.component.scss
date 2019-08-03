@@ -1,0 +1,19 @@
+@import '../../../scss/variable';
+
+.container {
+  // display: flex;
+  clear: both;
+  .addBtn{
+    float: right;
+  }
+}
+
+.list-item:nth-of-type(odd) {
+  background-color: $gray;
+}
+
+.mat-list-item-content {
+    // padding: 0!important;
+    justify-content: space-between;
+}
+

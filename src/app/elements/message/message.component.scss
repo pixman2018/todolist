@@ -1,0 +1,31 @@
+.message {
+    background-color: #75f1754a;
+    padding: 1rem;
+    border-radius: 3px;
+    opacity: 0;
+    animation: fade 2s;
+}
+
+// TODO: Color einstellen nach Material
+.error {
+    background-color: #f44336;
+}
+
+p:only-child {
+    margin: 0;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

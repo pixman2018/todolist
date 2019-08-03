@@ -1,0 +1,36 @@
+<section class="task-form">
+            
+    <fk-message [message]="message" [error]="isError" *ngIf="showMessage"></fk-message>
+    <div class="container">
+        <h1 *ngIf="!task.id">Neue Aufgabe anlegen</h1>
+        <h1 *ngIf="task.id">Aufgabe bearbeiten</h1>
+
+        <form class="form" novalidate #form="ngForm" (ngSubmit)="saveTaskItem(form.value)">
+            <input type="hidden" name="id" id="id" 
+                ngModel #id="ngModel"  [(ngModel)]="task.id" *ngIf="task.id"
+            >
+            <input type="hidden" name="done" id="done" 
+                ngModel #done="ngModel"  [(ngModel)]="task.done" *ngIf="task.id"
+            >
+            <mat-form-field>
+                <input type="text" placeholder="Neue Aufgabe" name="title" id="title" required 
+                    ngModel #title="ngModel"  [(ngModel)]="task.title"
+                    matInput
+                >
+                <mat-error *ngIf="title.hasError('required')">
+                    Bitte geben Sie eine Aufgabe ein!
+                </mat-error>
+            </mat-form-field>
+            
+            <button class="submit-buttom" type="submit" [disabled]="!form.valid" mat-raised-button
+                color="primary">
+                Speichern
+            </button>
+   
+        </form>
+        <button type="submit" class="back-buttom" routerLink="/task" mat-raised-button >
+            Zurück zur Aufgaben-Liste
+        </button>
+    </div>
+</section>
+
