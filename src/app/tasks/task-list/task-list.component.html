@@ -8,10 +8,17 @@
 
         <!-- <fk-task-item *ngFor="let task of tasks;" [task]="task"></fk-task-item> -->
         <mat-list>
-            <mat-list-item class="list-item" *ngFor="let task of tasks;">   
+            <mat-list-item class="list-item" *ngFor="let task of tasks;" [ngClass]="{ 
+                    'task-slow': task.priority === 'Niedrig',
+                    'task-normal': task.priority === 'Normal',
+                    'task-high': task.priority === 'Hoch'
+                }">   
                 <h3 matline>{{ task.title }}</h3>
-                <p>{{ task.id}}</p>
-                <p>{{task.done}}</p>
+                        <p>
+                            <mark>{{ task.id}}</mark>
+                            <mark>{{task.done}}</mark>  
+                            <mark>{{task.priority}}</mark>   
+                      </p>
                 <div class="spacer"></div>
                 <div class="task-navigate" >
                     <button aria-label="Task löschen" (click)="deleteTask(task)" mat-icon-button color="warn" >

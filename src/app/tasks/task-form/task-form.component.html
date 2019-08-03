@@ -13,13 +13,21 @@
                 ngModel #done="ngModel"  [(ngModel)]="task.done" *ngIf="task.id"
             >
             <mat-form-field>
-                <input type="text" placeholder="Neue Aufgabe" name="title" id="title" required 
+                <input type="text" placeholder="Neue Aufgabe" name="title" id="title" required autofocus
                     ngModel #title="ngModel"  [(ngModel)]="task.title"
                     matInput
                 >
                 <mat-error *ngIf="title.hasError('required')">
                     Bitte geben Sie eine Aufgabe ein!
                 </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-select placeholder="Priorität" name="priority" ngModel #priority="ngModel" [(ngModel)]="task.priority" required>
+                    <mat-option *ngFor="let priority of priories" [value]="priority">
+                        {{ priority }}
+                    </mat-option>
+                </mat-select>
             </mat-form-field>
             
             <button class="submit-buttom" type="submit" [disabled]="!form.valid" mat-raised-button

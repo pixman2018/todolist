@@ -3,5 +3,6 @@ export interface Tasks {
     title: string;
     // description?: string;
     done: boolean;
+    priority: string;
 }
 

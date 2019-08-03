@@ -59,6 +59,7 @@ export class TaskListComponent implements OnInit {
       this.tasks = task;
       this.countTask = task.length;
       this.isTaskDone(task);
+      console.log(this.tasks);
     }, (error: HttpErrorResponse) => {
       switch (error.status) {
         case 404:

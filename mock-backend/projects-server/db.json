@@ -2,38 +2,213 @@
   "tasks": [
     {
       "id": 1,
-      "title": "Angular lernen",
-      "done": true
+      "title": "Design bearbeiten",
+      "done": false,
+      "priority": "Normal"
     },
     {
       "id": 2,
-      "title": "Tomas",
-      "done": true
+      "title": "Code Kommentieren",
+      "done": false,
+      "priority": "Normal"
     },
     {
       "id": 3,
-      "title": "EcmaScript 2015-2019 lernen",
-      "done": false
+      "title": "Code prüfen",
+      "done": false,
+      "priority": "Normal"
     },
     {
       "id": 4,
-      "title": "Angular vertiefen",
-      "done": false
+      "title": "UML erstellen",
+      "done": false,
+      "priority": "Normal"
     },
     {
       "id": 5,
-      "title": "RxJs lernen",
-      "done": false
+      "title": "Unit Test schreiben",
+      "done": false,
+      "priority": "Normal"
     },
     {
       "id": 6,
-      "title": "Festplatte aufräumen",
-      "done": false
+      "title": "Taskgruppen-Namen Navigation",
+      "done": false,
+      "priority": "Normal"
     },
     {
       "id": 7,
-      "title": "testen mit jasmine",
-      "done": false
+      "title": "Taskgruppen-Namen Formular erstellen",
+      "done": false,
+      "priority": "Normal"
+    },
+    {
+      "id": 8,
+      "title": "Taskgruppen-Namen CRUD erstellen",
+      "done": false,
+      "priority": "Normal"
+    },
+    {
+      "id": 9,
+      "title": "Taskgruppen-Namen Message Ausgabe erstellen",
+      "done": false,
+      "priority": "Normal"
+    },
+    {
+      "id": 10,
+      "title": "Taskgruppen-Namen  Select Avatar-Bild",
+      "done": false,
+      "priority": "Normal"
+    },
+    {
+      "id": 11,
+      "title": "Priorität selectbox erstellen (High, middle, low, important)  ",
+      "done": true,
+      "priority": "Normal"
+    },
+    {
+      "id": 12,
+      "title": "Diskription Form erstellen ",
+      "done": false,
+      "priority": "Normal"
+    },
+    {
+      "id": 13,
+      "title": "Diskription per klick einblenden",
+      "done": false,
+      "priority": "Normal"
+    },
+    {
+      "id": 14,
+      "title": "Done Task auf der rechten Seite zeigen",
+      "done": false,
+      "priority": "Normal"
+    },
+    {
+      "id": 15,
+      "title": "Done Task Text durchstreichen",
+      "done": false,
+      "priority": "Normal"
+    },
+    {
+      "id": 16,
+      "title": "Optionaler Projektname Formular erstellen",
+      "done": false,
+      "priority": "Normal"
+    },
+    {
+      "id": 17,
+      "title": "Optionaler Projektname Message erstellen",
+      "done": false,
+      "priority": "Normal"
+    },
+    {
+      "id": 18,
+      "title": "Optionaler Projektname  mit Selectfeld auswählen",
+      "done": false,
+      "priority": "Normal"
+    },
+    {
+      "id": 19,
+      "title": "Error Service",
+      "done": false,
+      "priority": "Normal"
+    },
+    {
+      "id": 20,
+      "title": "Message ein-ausblenden in einem Service auslagern",
+      "done": false,
+      "priority": "Normal"
+    },
+    {
+      "id": 21,
+      "title": "Deutsche Lokalisierung",
+      "done": true,
+      "priority": "Normal"
+    },
+    {
+      "id": 22,
+      "title": "Deadline Datum Formular erstellen",
+      "done": false,
+      "priority": "Normal"
+    },
+    {
+      "id": 23,
+      "title": "Erstellungsdatum speichern",
+      "done": false,
+      "priority": "Normal"
+    },
+    {
+      "id": 24,
+      "title": "letzten 3 Änderungsdatums speichern",
+      "done": false,
+      "priority": "Normal"
+    },
+    {
+      "id": 25,
+      "title": "Pagination",
+      "done": false,
+      "priority": "Normal"
+    },
+    {
+      "id": 26,
+      "title": "Such-Filter erstellen",
+      "done": false,
+      "priority": "Normal"
+    },
+    {
+      "id": 27,
+      "title": "Auf- und Absteigend Sortieren",
+      "done": false,
+      "priority": "Normal"
+    },
+    {
+      "id": 28,
+      "title": "Suche erstellen",
+      "done": false,
+      "priority": "Normal"
+    },
+    {
+      "id": 29,
+      "title": "Notitz hinzufügen",
+      "done": false,
+      "priority": "Normal"
+    },
+    {
+      "id": 30,
+      "title": "Archiv erstellen",
+      "done": false,
+      "priority": "Normal"
+    },
+    {
+      "id": 31,
+      "title": "Task ins archiv hinein und hinaus legen",
+      "done": false,
+      "priority": "Normal"
+    },
+    {
+      "id": 32,
+      "title": "Archiv auflisten",
+      "done": false,
+      "priority": "Normal"
+    },
+    {
+      "id": 35,
+      "title": "Erledigte Task Anzahl anzeigen",
+      "done": false,
+      "priority": "Niedrig"
+    },
+    {
+      "id": 36,
+      "title": "Sortieren nach Priorität",
+      "done": false,
+      "priority": "Niedrig"
+    },
+    {
+      "id": 37,
+      "title": "Je nach Priorität die Hintergrundfarbe ändern",
+      "done": true,
+      "priority": "Hoch"
     }
   ]
 }

@@ -8,8 +8,14 @@
   }
 }
 
-.list-item:nth-of-type(odd) {
-  background-color: $gray;
+.list-item {
+
+  &:nth-of-type(odd) {
+    background-color: $gray;
+  }
+  & + .list-item {
+    border-top: 1px solid rgba(0,0,0,0.1);
+  }
 }
 
 .mat-list-item-content {
@@ -17,3 +23,14 @@
     justify-content: space-between;
 }
 
+.task-slow {
+  background-color: rgba(117, 241, 117, 0.29) !important;
+}
+
+.task-normal {
+  background-color: rgba(255, 215, 64, 0.29) !important;
+}
+
+.task-high {
+  background-color: rgba(244, 67, 54, 0.29) !important;
+}

@@ -11,6 +11,7 @@ import { successTask, errorTask } from './../../shared/model/messages.model';
 
 // rxjs
 import { Subscription, timer } from 'rxjs';
+import { priority } from 'src/app/shared/model/taskFormValue';
 
 
 @Component({
@@ -22,12 +23,13 @@ export class TaskFormComponent implements OnInit, OnDestroy {
 
   @ViewChild(NgForm, {static: false}) form: NgForm;
 
-  task: any = new TaskModel(0, '', false); //Tasks TODO: besseren Typen finden // Tasks | Observable<Tasks[]>
+  task: any = new TaskModel(0, '', false, ''); //Tasks TODO: besseren Typen finden // Tasks | Observable<Tasks[]>
   subscription: Subscription;
   history: string[] = [];
   isError: boolean = false;
   showMessage: boolean = false;
   message: string = '';
+  priories: string[] = priority;
 
   constructor ( 
     private router: Router,
@@ -55,7 +57,7 @@ export class TaskFormComponent implements OnInit, OnDestroy {
   saveTaskItem(task) {
     if (!task.id) {
       this.taskService.getLastTaskId().subscribe((lastTask) => {
-        const newTask: Tasks = new TaskModel( lastTask[0].id += 1, task.title, false );
+        const newTask: Tasks = new TaskModel( lastTask[0].id += 1, task.title, false, task.priority );
         this.taskService.createTask(newTask).subscribe(task => {
           console.log('Aufgabe erfolgreich gespeichert!', task);
           this.task = task;
