@@ -54,7 +54,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     DeleteDialogComponent,
   ],
   entryComponents: [
-    DeleteDialogComponent,
+    DeleteDialogComponent, 
+    MessageComponent,
   ]
 })
 export class TasksModule { }

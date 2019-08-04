@@ -1,14 +1,72 @@
 <section class="task-list">
-    <fk-message [message]="message" [error]="isError" *ngIf="showMessage"></fk-message>
     <div class="container">
         <h1 class="mat-display-1">
             Task Liste <span class="mat-h1 colorBlack60">({{ countTask }}/ {{ countTask - countTaskDone }})</span>
         </h1>
-        <!-- <mat-divider [inset]="true"></mat-divider> -->
+      
+        <div class="task-list-container">
+            <mat-list class="list-item-not-done">
+                <ng-container *ngFor="let task of tasks;">
+                    <mat-list-item class="list-item" *ngIf="!task.done; else taskDone;" [ngClass]="{ 
+                                    'task-slow': task.priority === 'Niedrig',
+                                    'task-normal': task.priority === 'Normal',
+                                    'task-high': task.priority === 'Hoch'
+                                }">
+                        <h3 [ngClass]="{'task-strikethrough': task.done}" matline>{{ task.title }}</h3>
+                        <!-- <p>
+                                    <mark>{{ task.id}}</mark>
+                                    <mark>{{task.done}}</mark>
+                                    <mark>{{task.priority}}</mark>
+                                </p> -->
+                        <div class="spacer"></div>
+                        <div class="task-navigate">
+                            <button aria-label="Task löschen" (click)="deleteTask(task)" mat-icon-button color="warn">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                            <button aria-label="Task bearbeiten" [routerLink]="['/editTask', task.id]" mat-icon-button
+                                color="primary">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                        </div>
+                        <mat-checkbox [(ngModel)]="task.done" (click)="changeTaskDone(task)" color="primary">
+                        </mat-checkbox>
+                    </mat-list-item>
+                </ng-container>
+            </mat-list>
 
-        <!-- <fk-task-item *ngFor="let task of tasks;" [task]="task"></fk-task-item> -->
-        <mat-list>
-            <mat-list-item class="list-item" *ngFor="let task of tasks;" [ngClass]="{ 
+            <mat-list class="list-item-done">
+                <ng-container *ngFor="let task of tasks;">
+                    <mat-list-item class="list-item" *ngIf="task.done; else taskDone;" [ngClass]="{ 
+                                        'task-slow': task.priority === 'Niedrig',
+                                        'task-normal': task.priority === 'Normal',
+                                        'task-high': task.priority === 'Hoch'
+                                    }">
+                        <h3 [ngClass]="{'task-strikethrough': task.done}" matline>{{ task.title }}</h3>
+                        <!-- <p>
+                                        <mark>{{ task.id}}</mark>
+                                        <mark>{{task.done}}</mark>
+                                        <mark>{{task.priority}}</mark>
+                                    </p> -->
+                        <div class="spacer"></div>
+                        <div class="task-navigate">
+                            <button aria-label="Task löschen" (click)="deleteTask(task)" mat-icon-button color="warn">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                            <button aria-label="Task bearbeiten" [routerLink]="['/editTask', task.id]" mat-icon-button
+                                color="primary">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                        </div>
+                        <mat-checkbox [(ngModel)]="task.done" (click)="changeTaskDone(task)" color="primary">
+                        </mat-checkbox>
+                    </mat-list-item>
+                </ng-container>
+            </mat-list>
+        </div>
+
+
+
+        <!-- <mat-list-item class="list-item list-item-not-done" *ngFor="let task of tasks;" [ngClass]="{ 
                     'task-slow': task.priority === 'Niedrig',
                     'task-normal': task.priority === 'Normal',
                     'task-high': task.priority === 'Hoch'
@@ -29,12 +87,12 @@
                         </button>
                 </div>
                 <mat-checkbox [(ngModel)]="task.done" (click)="changeTaskDone(task)" color="primary"></mat-checkbox>
-            </mat-list-item>
-        </mat-list>
+            </mat-list-item> -->
+        <!-- </mat-list> -->
 
-        <button class="btn addBtn" routerLink="{{addTaskLink}}" mat-fab color="primary" >
+        <button class="btn addBtn" routerLink="{{addTaskLink}}" mat-fab color="primary">
             <mat-icon>add</mat-icon>
         </button>
-        
+
     </div>
 </section>

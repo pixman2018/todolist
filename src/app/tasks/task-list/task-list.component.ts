@@ -10,10 +10,11 @@ import { RoutingStateService } from 'src/app/shared/services/routing-state.servi
 // RxJs
 import { timer } from 'rxjs';
 
-
 // Material
 import { MatSnackBar, MatDialog } from '@angular/material';
 import { DeleteDialogComponent } from 'src/app/elements/delete-dialog/delete-dialog.component';
+import { ErrorsHandlerService } from 'src/app/shared/services/errors-handler.service';
+import { MessageHandlerService } from 'src/app/shared/services/message-handler.service';
 
 
 @Component({
@@ -39,6 +40,8 @@ export class TaskListComponent implements OnInit {
     private snackbar: MatSnackBar,
     private dialog: MatDialog,
     private taskService: TaskService,
+    private errorHandler: ErrorsHandlerService,
+    private messageHandler: MessageHandlerService,
     private routingState: RoutingStateService,
   ) { 
     this.routingState.loadRouting();
@@ -61,16 +64,7 @@ export class TaskListComponent implements OnInit {
       this.isTaskDone(task);
       console.log(this.tasks);
     }, (error: HttpErrorResponse) => {
-      switch (error.status) {
-        case 404:
-          console.error('Der Endpunkt wurde nicht gefunden! ', error);
-          break;
-        case 500:
-          console.error('Server-Fehler beim laden der Task! ', error);
-          break;
-        default:
-          console.error('Irgendetwas anderes wirft einen Fehler! ', error)
-      }
+      this.errorHandler.getResponseError(error);
     });
   }
 
@@ -79,6 +73,8 @@ export class TaskListComponent implements OnInit {
       this.task = task;
       this.task.done = ! this.task.done;
       this.editTask();
+    }, (error: HttpErrorResponse) => {
+      this.errorHandler.getResponseError(error);
     });
   }
 
@@ -100,10 +96,11 @@ export class TaskListComponent implements OnInit {
       if (result === true) {
         console.log('delete')
         this.taskService.deleteTask(task).subscribe( _ => {
-          // this.snackbar.open('Task gelöscht', '', {duration: 2000});
           this.message = successTask.delete;
-          this.chanceMessage();
+          this.messageHandler.chanceMessage(this.message, ['/task']);
           this.getAllTask();
+        }, (error: HttpErrorResponse) => {
+          this.errorHandler.getResponseError(error);
         });    
       }
     });    
@@ -114,7 +111,7 @@ export class TaskListComponent implements OnInit {
       this.task = task;
       this.isTaskDone(this.tasks);
     }, (error: HttpErrorResponse) => {
-      console.error(`Es ist ein Fehler aufgetretten: ${error}`);
+      this.errorHandler.getResponseError(error);
     });
   }
 

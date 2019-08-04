@@ -1,6 +1,5 @@
 <section class="task-form">
             
-    <fk-message [message]="message" [error]="isError" *ngIf="showMessage"></fk-message>
     <div class="container">
         <h1 *ngIf="!task.id">Neue Aufgabe anlegen</h1>
         <h1 *ngIf="task.id">Aufgabe bearbeiten</h1>

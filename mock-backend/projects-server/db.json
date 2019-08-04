@@ -4,67 +4,67 @@
       "id": 1,
       "title": "Design bearbeiten",
       "done": false,
-      "priority": "Normal"
+      "priority": "Hoch"
     },
     {
       "id": 2,
       "title": "Code Kommentieren",
       "done": false,
-      "priority": "Normal"
+      "priority": "Hoch"
     },
     {
       "id": 3,
       "title": "Code prüfen",
       "done": false,
-      "priority": "Normal"
+      "priority": "Hoch"
     },
     {
       "id": 4,
       "title": "UML erstellen",
       "done": false,
-      "priority": "Normal"
+      "priority": "Hoch"
     },
     {
       "id": 5,
       "title": "Unit Test schreiben",
       "done": false,
-      "priority": "Normal"
+      "priority": "Hoch"
     },
     {
       "id": 6,
       "title": "Taskgruppen-Namen Navigation",
       "done": false,
-      "priority": "Normal"
+      "priority": "Niedrig"
     },
     {
       "id": 7,
       "title": "Taskgruppen-Namen Formular erstellen",
       "done": false,
-      "priority": "Normal"
+      "priority": "Niedrig"
     },
     {
       "id": 8,
       "title": "Taskgruppen-Namen CRUD erstellen",
       "done": false,
-      "priority": "Normal"
+      "priority": "Niedrig"
     },
     {
       "id": 9,
       "title": "Taskgruppen-Namen Message Ausgabe erstellen",
       "done": false,
-      "priority": "Normal"
+      "priority": "Niedrig"
     },
     {
       "id": 10,
       "title": "Taskgruppen-Namen  Select Avatar-Bild",
       "done": false,
-      "priority": "Normal"
+      "priority": "Niedrig"
     },
     {
       "id": 11,
       "title": "Priorität selectbox erstellen (High, middle, low, important)  ",
       "done": true,
-      "priority": "Normal"
+      "priority": "Hoch"
     },
     {
       "id": 12,
@@ -81,50 +81,50 @@
     {
       "id": 14,
       "title": "Done Task auf der rechten Seite zeigen",
-      "done": false,
-      "priority": "Normal"
+      "done": true,
+      "priority": "Hoch"
     },
     {
       "id": 15,
       "title": "Done Task Text durchstreichen",
-      "done": false,
-      "priority": "Normal"
+      "done": true,
+      "priority": "Hoch"
     },
     {
       "id": 16,
       "title": "Optionaler Projektname Formular erstellen",
       "done": false,
-      "priority": "Normal"
+      "priority": "Niedrig"
     },
     {
       "id": 17,
       "title": "Optionaler Projektname Message erstellen",
       "done": false,
-      "priority": "Normal"
+      "priority": "Niedrig"
     },
     {
       "id": 18,
       "title": "Optionaler Projektname  mit Selectfeld auswählen",
       "done": false,
-      "priority": "Normal"
+      "priority": "Niedrig"
     },
     {
       "id": 19,
       "title": "Error Service",
-      "done": false,
-      "priority": "Normal"
+      "done": true,
+      "priority": "Hoch"
     },
     {
       "id": 20,
       "title": "Message ein-ausblenden in einem Service auslagern",
-      "done": false,
-      "priority": "Normal"
+      "done": true,
+      "priority": "Hoch"
     },
     {
       "id": 21,
       "title": "Deutsche Lokalisierung",
       "done": true,
-      "priority": "Normal"
+      "priority": "Hoch"
     },
     {
       "id": 22,
@@ -148,7 +148,7 @@
       "id": 25,
       "title": "Pagination",
       "done": false,
-      "priority": "Normal"
+      "priority": "Hoch"
     },
     {
       "id": 26,
@@ -166,31 +166,31 @@
       "id": 28,
       "title": "Suche erstellen",
       "done": false,
-      "priority": "Normal"
+      "priority": "Niedrig"
     },
     {
       "id": 29,
       "title": "Notitz hinzufügen",
       "done": false,
-      "priority": "Normal"
+      "priority": "Niedrig"
     },
     {
       "id": 30,
       "title": "Archiv erstellen",
       "done": false,
-      "priority": "Normal"
+      "priority": "Niedrig"
     },
     {
       "id": 31,
       "title": "Task ins archiv hinein und hinaus legen",
       "done": false,
-      "priority": "Normal"
+      "priority": "Niedrig"
     },
     {
       "id": 32,
       "title": "Archiv auflisten",
       "done": false,
-      "priority": "Normal"
+      "priority": "Niedrig"
     },
     {
       "id": 35,
@@ -208,6 +208,12 @@
       "id": 37,
       "title": "Je nach Priorität die Hintergrundfarbe ändern",
       "done": true,
+      "priority": "Hoch"
+    },
+    {
+      "id": 38,
+      "title": "End2End Test schreiben",
+      "done": false,
       "priority": "Hoch"
     }
   ]

@@ -19,8 +19,12 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { AppComponent } from './app.component';
 import { TasksModule } from './tasks/tasks.module';
+// Examples
 import { RxjsComponent } from './example/rxjs/rxjs.component';
 import { AnimationComponent } from './example/animation/animation.component';
+
+import { MessageComponent } from './elements/message/message.component';
+
 
 registerLocaleData(localeDe, localeDeExtra);
 
@@ -28,6 +32,9 @@ registerLocaleData(localeDe, localeDeExtra);
 @NgModule({
   declarations: [
     AppComponent,
+    // MessageComponent,
+
+    // Expample
     RxjsComponent,
     AnimationComponent,
   ],
@@ -47,6 +54,11 @@ registerLocaleData(localeDe, localeDeExtra);
     { provide: LOCALE_ID, useValue: 'de' },
   ],
   bootstrap: [AppComponent],
-  exports: []
+  exports: [
+    // MessageComponent,
+  ],
+  entryComponents: [
+    // MessageComponent,
+  ]
 })
 export class AppModule { }

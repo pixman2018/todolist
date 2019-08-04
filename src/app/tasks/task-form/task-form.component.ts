@@ -12,6 +12,10 @@ import { successTask, errorTask } from './../../shared/model/messages.model';
 // rxjs
 import { Subscription, timer } from 'rxjs';
 import { priority } from 'src/app/shared/model/taskFormValue';
+import { ErrorsHandlerService } from 'src/app/shared/services/errors-handler.service';
+import { MatDialog } from '@angular/material';
+import { MessageComponent } from 'src/app/elements/message/message.component';
+import { MessageHandlerService } from 'src/app/shared/services/message-handler.service';
 
 
 @Component({
@@ -31,10 +35,15 @@ export class TaskFormComponent implements OnInit, OnDestroy {
   message: string = '';
   priories: string[] = priority;
 
+  messageDialogRef;
+
   constructor ( 
     private router: Router,
     private activatedRoute: ActivatedRoute,
+    private errorHandler: ErrorsHandlerService,
+    private messageHandler: MessageHandlerService,
     private taskService: TaskService,
+    private messageDialog: MatDialog,
   ) {
   }
 
@@ -46,7 +55,11 @@ export class TaskFormComponent implements OnInit, OnDestroy {
         const tempTask = id ? this.getById(id) : this.getLastTaskId();
         tempTask.subscribe((task) => {
           this.task = task;
-        })
+        }, (error: HttpErrorResponse) => {
+          this.errorHandler.getResponseError(error);
+        });
+      }, (error: HttpErrorResponse) => {
+        this.errorHandler.getResponseError(error);
       });
   }
 
@@ -62,30 +75,33 @@ export class TaskFormComponent implements OnInit, OnDestroy {
           console.log('Aufgabe erfolgreich gespeichert!', task);
           this.task = task;
           this.message = successTask.add;
-          this.chanceMessage();
+          this.messageHandler.chanceMessage(this.message, ['/task']);
           
         }, (error: HttpErrorResponse) => {
           this.isError = true;
           this.message = errorTask.add;
-          console.error(`Es ist ein Fehler aufgetretten: ${error}`);
+          this.errorHandler.getResponseError(error);
         });
       }, (error: HttpErrorResponse) => {
         // Error output?
         this.isError = true;
-        console.error(`Es ist ein Fehler aufgetretten: ${error}`);
+        this.errorHandler.getResponseError(error);
       });
       
     } else {
       console.log('edit');
+      
+
       this.taskService.updateTask(this.task).subscribe(task=> {
         console.log('Aufgabe geändert!', task);
         this.task = task;
         this.message = successTask.edit;
-        this.chanceMessage();
+        this.messageHandler.chanceMessage(this.message, ['/task']);
+
       }, (error: HttpErrorResponse) => {
         this.isError = true;
         this.message = errorTask.edit;
-        console.error(`Es ist ein Fehler aufgetretten: ${error}`);
+        this.errorHandler.getResponseError(error);
       });
     }
   }
@@ -98,12 +114,14 @@ export class TaskFormComponent implements OnInit, OnDestroy {
     return this.taskService.getLastTaskId();
   }
 
-  chanceMessage() {
-    this.showMessage = true;
-        timer(1800).subscribe( i => {
-        this.showMessage = false;
-        this.router.navigate(['/task']);
-    });
-  }
+  // chanceMessage( redirect) {
+
+  //   this.messageDialog.open(MessageComponent, {
+  //     data: { 
+  //       title: this.message, 
+  //       redirect: redirect 
+  //     }
+  //   });
+  // }
 
 }
