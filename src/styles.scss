@@ -1,11 +1,4 @@
- // Angular Material 
- .fill-space {
-    flex: 1 1 auto; 
-}
-
-.spacer {
-    flex: 1 1 auto;
-  }
+@import './scss/material';
 
 .colorBlack60 {
    color: rgba(0, 0, 0, 0.6);

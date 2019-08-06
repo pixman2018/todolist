@@ -17,6 +17,6 @@ export class AppComponent {
 
   goHome() {
     this.routingState.history = [];
-    this.router.navigate(['/']);
+    this.router.navigate(['task', '1']);
   }
 }

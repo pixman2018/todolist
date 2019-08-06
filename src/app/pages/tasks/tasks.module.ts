@@ -5,8 +5,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TasksRoutingModule } from './tasks-routing.module';
 import { TaskListComponent } from './task-list/task-list.component';
 import { TaskFormComponent } from './task-form/task-form.component';
-import { MessageComponent } from './../elements/message/message.component';
-import { DeleteDialogComponent } from '../elements/delete-dialog/delete-dialog.component'
+import { MessageComponent } from '../../elements/message/message.component';
+import { DeleteDialogComponent } from '../../elements/delete-dialog/delete-dialog.component'
+import { PaginationComponent } from '../../elements/pagination/pagination.component';
 
 // Material
 // import {MatCardModule} from '@angular/material/card';
@@ -20,6 +21,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 @NgModule({
@@ -28,6 +30,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     TaskFormComponent, 
     MessageComponent,
     DeleteDialogComponent,
+    PaginationComponent,
   ],
   imports: [
     CommonModule,
@@ -47,11 +50,13 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatDividerModule,
     MatDialogModule,
     MatSnackBarModule,
+    MatExpansionModule,
   ],
   exports: [
     TaskListComponent, 
-    MessageComponent,
-    DeleteDialogComponent,
+    // MessageComponent,
+    // DeleteDialogComponent,
+    // PaginationComponent,
   ],
   entryComponents: [
     DeleteDialogComponent, 

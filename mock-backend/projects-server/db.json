@@ -147,7 +147,7 @@
     {
       "id": 25,
       "title": "Pagination",
-      "done": false,
+      "done": true,
       "priority": "Hoch"
     },
     {
@@ -202,7 +202,7 @@
       "id": 36,
       "title": "Sortieren nach Priorität",
       "done": false,
-      "priority": "Niedrig"
+      "priority": "Normal"
     },
     {
       "id": 37,
@@ -215,6 +215,30 @@
       "title": "End2End Test schreiben",
       "done": false,
       "priority": "Hoch"
+    },
+    {
+      "id": 39,
+      "title": "Erledigte Task in Prozent anzeigen",
+      "done": false,
+      "priority": "Niedrig"
+    },
+    {
+      "id": 40,
+      "title": "Task angefangen zu bearbeiten",
+      "done": false,
+      "priority": "Niedrig"
+    },
+    {
+      "id": 41,
+      "title": "Task beendet",
+      "done": false,
+      "priority": "Niedrig"
+    },
+    {
+      "id": 42,
+      "title": "Task Zeit in Tage Stunden Minuten anzeigen",
+      "done": false,
+      "priority": "Niedrig"
     }
   ]
 }

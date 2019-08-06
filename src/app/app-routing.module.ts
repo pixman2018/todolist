@@ -3,12 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'task',
-    loadChildren: './tasks/tasks.module#TasksModule'
+    path: 'task/:page',
+    loadChildren: './pages/tasks/tasks.module#TasksModule'
   }, 
   {
     path: '',
-    redirectTo: 'task',
+    redirectTo: 'task/:page',
     pathMatch: 'full'
   }
 ];

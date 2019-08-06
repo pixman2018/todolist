@@ -7,7 +7,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { TaskService } from 'src/app/shared/services/task.service';
 import { Tasks } from 'src/app/shared/interfaces/Taks.interface';
 import { TaskModel } from 'src/app/shared/model/Tasks.model';
-import { successTask, errorTask } from './../../shared/model/messages.model';
+import { successTask, errorTask } from '../../../shared/model/messages.model';
 
 // rxjs
 import { Subscription, timer } from 'rxjs';
@@ -75,7 +75,7 @@ export class TaskFormComponent implements OnInit, OnDestroy {
           console.log('Aufgabe erfolgreich gespeichert!', task);
           this.task = task;
           this.message = successTask.add;
-          this.messageHandler.chanceMessage(this.message, ['/task']);
+          this.messageHandler.chanceMessage(this.message, ['/task/:page']);
           
         }, (error: HttpErrorResponse) => {
           this.isError = true;

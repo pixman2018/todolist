@@ -4,6 +4,7 @@ import { HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 import { Tasks } from '../interfaces/Taks.interface';
+import { map } from 'rxjs/operators';
 
 const taskUrl: string = 'http://localhost:3000/api/tasks/';
 
@@ -19,6 +20,22 @@ export class TaskService {
 
   getAllTasks(): Observable<Tasks[]> {
     return this.http.get<Tasks[]>(taskUrl);
+  }
+
+  getAllNotDoneTask(): Observable<Tasks[]> {
+    const params = new HttpParams()
+      .append('done', 'false');
+    return this.http.get<Tasks[]>(taskUrl, {
+      params: params
+    });
+  }
+
+  getAllDoneTask(): Observable<Tasks[]> {
+    const params = new HttpParams()
+      .append('done', 'true');
+    return this.http.get<Tasks[]>(taskUrl, {
+      params: params
+    });
   }
 
   getLastTaskId():any  { // Buch Observable<HttpResponse<Tasks[]>>
@@ -50,6 +67,22 @@ export class TaskService {
   deleteTask(task: Tasks): Observable<HttpResponse<Tasks>> {
     console.log('delete2')
     return this.http.delete<Tasks>(taskUrl + task.id, {
+      observe: 'response'
+    });
+  }
+
+  getTaskCount() {
+    // TODO: Configure in json-express that the header is sent
+    return this.http.head<any>(taskUrl, {observe: 'response'});
+  }
+
+  getTaskByLimit() {
+    const params = new HttpParams()
+      .append('_start', '0')
+      .append('_end', '10')
+      .append('_limit', '10');
+    return this.http.get<Tasks[]>(taskUrl, {
+      params: params,
       observe: 'response'
     });
   }
