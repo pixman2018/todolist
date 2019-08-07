@@ -25,8 +25,9 @@ export class RoutingStateService {
     return this.history;
   }
 
-  public getPreviousUrl(): string {
-    return this.history[this.history.length -3] || '/index';
+  public getPreviousUrl(): string[] {
+    const previousUrl = this.history[this.history.length -2] || '/';
+    return previousUrl.split('/').splice(1);
   }
 
   public deleteHistory(): void {

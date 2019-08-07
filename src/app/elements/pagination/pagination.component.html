@@ -1,21 +1,35 @@
 <div class="pagination">
-    <button mat-icon-button aria-label="Zurück zur ersten Seite" [routerLink]="['/task', 1]" [disabled]="page === 1">
-        <mat-icon>fast_rewind</mat-icon>
-    </button>
-    <button mat-icon-button aria-label="Eine Seite zurück" [routerLink]="['/task', page - 1]" [disabled]="page === 1">
+    <button 
+        aria-label="Zurück zur ersten Seite" 
+        [routerLink]="['/task', 1]" [disabled]="currentPage === 1" [ngStyle]="{'width':buttomWidth}"
+        mat-icon-button >
         <mat-icon>skip_previous</mat-icon>
     </button>
     <button  
+        aria-label="Eine Seite zurück" 
+        [routerLink]="['/task', currentPage - 1]" [disabled]="currentPage === 1" [ngStyle]="{'width':buttomWidth}"
+        mat-icon-button >
+        <mat-icon>fast_rewind</mat-icon>
+    </button>
+    <button  
         *ngFor="let item of createRange(maxPage); let index = index;" 
-        [ngClass]="{activePagination: page == (index + 1)}"
+        [ngClass]="{activePagination: currentPage == (index + 1)}"
         [routerLink]="['/task', index + 1]"
+        [ngStyle]="{'width':buttomWidth}"
         mat-flat-button
     >{{item}}</button>
-    <button mat-icon-button aria-label="Eine Seite vor" [routerLink]="['/task', page + 1]" [disabled]="page === maxPage">
-        <mat-icon>skip_next</mat-icon>
-    </button>
-    <button mat-icon-button aria-label="Vor zur letzten Seite" [routerLink]="['/task', maxPage]" [disabled]="page === maxPage">
+    <button 
+        aria-label="Eine Seite vor" 
+        [routerLink]="['/task', currentPage + 1]" [disabled]="currentPage === maxPage" 
+        [ngStyle]="{'width':buttomWidth}"
+        mat-icon-button >
         <mat-icon>fast_forward</mat-icon>
+    </button>
+    <button 
+        aria-label="Vor zur letzten Seite" 
+        [routerLink]="['/task', maxPage]" [disabled]="currentPage === maxPage" [ngStyle]="{'width':buttomWidth}"
+        mat-icon-button >
+        <mat-icon>skip_next</mat-icon>
     </button>
 </div> 
 

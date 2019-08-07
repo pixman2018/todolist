@@ -16,6 +16,7 @@ import { ErrorsHandlerService } from 'src/app/shared/services/errors-handler.ser
 import { MatDialog } from '@angular/material';
 import { MessageComponent } from 'src/app/elements/message/message.component';
 import { MessageHandlerService } from 'src/app/shared/services/message-handler.service';
+import { RoutingStateService } from 'src/app/shared/services/routing-state.service';
 
 
 @Component({
@@ -44,6 +45,7 @@ export class TaskFormComponent implements OnInit, OnDestroy {
     private messageHandler: MessageHandlerService,
     private taskService: TaskService,
     private messageDialog: MatDialog,
+    private routingState: RoutingStateService,
   ) {
   }
 
@@ -72,10 +74,9 @@ export class TaskFormComponent implements OnInit, OnDestroy {
       this.taskService.getLastTaskId().subscribe((lastTask) => {
         const newTask: Tasks = new TaskModel( lastTask[0].id += 1, task.title, false, task.priority );
         this.taskService.createTask(newTask).subscribe(task => {
-          console.log('Aufgabe erfolgreich gespeichert!', task);
           this.task = task;
           this.message = successTask.add;
-          this.messageHandler.chanceMessage(this.message, ['/task/:page']);
+          this.messageHandler.chanceMessage(this.message, ['/task/' + sessionStorage.getItem('maxTaskPage')]);
           
         }, (error: HttpErrorResponse) => {
           this.isError = true;
@@ -89,14 +90,11 @@ export class TaskFormComponent implements OnInit, OnDestroy {
       });
       
     } else {
-      console.log('edit');
-      
-
+      const previousUrl = this.routingState.getPreviousUrl();
       this.taskService.updateTask(this.task).subscribe(task=> {
-        console.log('Aufgabe geändert!', task);
         this.task = task;
         this.message = successTask.edit;
-        this.messageHandler.chanceMessage(this.message, ['/task']);
+        this.messageHandler.chanceMessage(this.message, previousUrl);
 
       }, (error: HttpErrorResponse) => {
         this.isError = true;

@@ -11,7 +11,7 @@ import { ErrorsHandlerService } from 'src/app/shared/services/errors-handler.ser
 import { MessageHandlerService } from 'src/app/shared/services/message-handler.service';
 
 // RxJs
-import { Observable } from 'rxjs';
+import { timer, Observable } from 'rxjs';
 
 // Material
 import { MatDialog } from '@angular/material';
@@ -57,9 +57,9 @@ export class TaskListComponent implements OnInit {
 
   ngOnInit() {
     // this.getAllTask();
-    this.previousRoute = this.routingState.getPreviousUrl();
-    const patternEdit = /\/editTask/;
-    const patternAdd = /\/addTask/;
+    this.previousRoute = this.routingState.getHistory().join(',');
+    const patternEdit = /\/edit/;
+    const patternAdd = /\/add/;
     if (patternEdit.test(this.previousRoute) || patternAdd.test(this.previousRoute)) {
       this.routingState.history = [];
     }
@@ -75,7 +75,7 @@ export class TaskListComponent implements OnInit {
     this.activeRoute.params
       .subscribe(params => {
         this.page = params.page;
-      });
+    });
   }
 
   // getAllTask() {
@@ -131,17 +131,20 @@ export class TaskListComponent implements OnInit {
   // }
 
   deleteTask(task) {
+    const previousUrl = this.routingState.getPreviousUrl();
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
       width: '80%', maxWidth: '450px',
       data: { ...deleteTask, ...{name: task.title}}
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result === true) {
-        console.log('delete')
         this.taskService.deleteTask(task).subscribe( _ => {
           this.message = successTask.delete;
-          this.messageHandler.chanceMessage(this.message, ['/task']);
+          this.messageHandler.chanceMessage(this.message, previousUrl);
           // this.getAllTask();
+          timer(1500).subscribe( i => {
+            this.reload();
+          });
         }, (error: HttpErrorResponse) => {
           this.errorHandler.getResponseError(error);
         });    
@@ -153,10 +156,14 @@ export class TaskListComponent implements OnInit {
     this.taskService.updateTask(this.task).subscribe(task=> {
       this.task = task;
       // this.isTaskDone(this.tasks);
-      window.location.reload();
+      this.reload();
     }, (error: HttpErrorResponse) => {
       this.errorHandler.getResponseError(error);
     });
+  }
+
+  reload() {
+    window.location.reload();
   }
 
 }

@@ -14,7 +14,7 @@ const taskUrl: string = 'http://localhost:3000/api/tasks/';
 
 export class TaskService {
 
-  
+  allTaskCount: number = 0;
 
   constructor( private http: HttpClient) { }
 
@@ -71,9 +71,14 @@ export class TaskService {
     });
   }
 
+  // getTaskCount() {
+  //   // TODO: Configure in json-express that the header is sent
+  //   return this.http.head<any>(taskUrl, {observe: 'response'});
+  // }
   getTaskCount() {
-    // TODO: Configure in json-express that the header is sent
-    return this.http.head<any>(taskUrl, {observe: 'response'});
+    this.getAllTasks().subscribe( task => {
+      this.allTaskCount = task.length;
+    });
   }
 
   getTaskByLimit() {

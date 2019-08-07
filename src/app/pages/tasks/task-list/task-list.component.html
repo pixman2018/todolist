@@ -33,7 +33,7 @@
                     </mat-list-item>
                 </ng-container>
 
-                <fk-pagination *ngIf="countTask > 10" [countTask]="countTask" [pageSize]="pageSize"></fk-pagination>
+                <fk-pagination *ngIf="countTask > 10" [allTask]="countTask" [pageSize]="pageSize"></fk-pagination>
             </mat-list>
 
             <mat-list class="list-item-done">
@@ -65,7 +65,7 @@
                     </mat-list-item>
                 </ng-container>
 
-                <!-- <fk-pagination *ngIf="countTaskDone > 10" [countTask]="countTaskDone" [pageSize]="pageSize"></fk-pagination> -->
+                <fk-pagination *ngIf="countTaskDone > 10" [allTask]="countTaskDone" [pageSize]="pageSize"></fk-pagination>
 
             </mat-list>
         </div>

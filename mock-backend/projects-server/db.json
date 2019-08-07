@@ -196,7 +196,7 @@
       "id": 35,
       "title": "Erledigte Task Anzahl anzeigen",
       "done": false,
-      "priority": "Niedrig"
+      "priority": "Normal"
     },
     {
       "id": 36,
@@ -237,6 +237,12 @@
     {
       "id": 42,
       "title": "Task Zeit in Tage Stunden Minuten anzeigen",
+      "done": false,
+      "priority": "Niedrig"
+    },
+    {
+      "id": 43,
+      "title": "Neues Entwickler-Tea",
       "done": false,
       "priority": "Niedrig"
     }

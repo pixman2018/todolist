@@ -8,7 +8,7 @@ const routes: Routes = [
   }, 
   {
     path: '',
-    redirectTo: 'task/:page',
+    redirectTo: 'task/1',
     pathMatch: 'full'
   }
 ];
