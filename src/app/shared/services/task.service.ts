@@ -46,7 +46,7 @@ export class TaskService {
     return this.http.get<Tasks[]>(taskUrl, {
       params: params
     });
-  }
+
 
   getTaskById(id: number) {
     return this.http.get<Tasks[]>(`${taskUrl}${id}/`);

@@ -7,16 +7,18 @@ export class ErrorsHandlerService {
 
   constructor() { }
 
-  getResponseError(error) {
+  getResponseError(error, actionMethod, ServiceMethod) {
+    let errorMessage: string = `Bei Aufruf der Service-Methode "${ServiceMethod}" innerhalb der Methode "${actionMethod}" ist der Fehler  `;
     switch (error.status) {
       case 404:
-        console.error('Der Endpunkt wurde nicht gefunden! ', error);
+        errorMessage = errorMessage + '"Der Endpunkt wurde nicht gefunden!" aufgetreten. ';
         break;
       case 500:
-        console.error('Server-Fehler beim laden der Task! ', error);
+        errorMessage = errorMessage + '"Server-Fehler beim laden der Task!" aufgetreten.';
         break;
       default:
-        console.error('Irgendetwas anderes wirft einen Fehler! ', error)
+        errorMessage = errorMessage + '"Irgendetwas anderes wirft einen Fehler!" aufgetreten ';
     }
+    console.error(errorMessage, error);
   }
 }

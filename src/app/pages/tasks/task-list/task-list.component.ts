@@ -90,10 +90,12 @@ export class TaskListComponent implements OnInit {
 
   getAllTaskDone() {
     this.allTasksDone$ = this.taskService.getAllDoneTask();
+    // TODO: ErrorHandling
   }
 
   getAllTaskNotDone() {
     this.allTasksNotDone$ = this.taskService.getAllNotDoneTask();
+    // TODO: ErrorHandling
   }
 
   getCountTask() {
@@ -117,7 +119,7 @@ export class TaskListComponent implements OnInit {
       this.task.done = ! this.task.done;
       this.editTask();
     }, (error: HttpErrorResponse) => {
-      this.errorHandler.getResponseError(error);
+      this.errorHandler.getResponseError(error, 'changeTaskDone', 'getTaskById');
     });
   }
 
@@ -146,7 +148,7 @@ export class TaskListComponent implements OnInit {
             this.reload();
           });
         }, (error: HttpErrorResponse) => {
-          this.errorHandler.getResponseError(error);
+          this.errorHandler.getResponseError(error, 'deleteTask', 'deleteTask');
         });    
       }
     });    
@@ -158,7 +160,7 @@ export class TaskListComponent implements OnInit {
       // this.isTaskDone(this.tasks);
       this.reload();
     }, (error: HttpErrorResponse) => {
-      this.errorHandler.getResponseError(error);
+      this.errorHandler.getResponseError(error, 'editTask', 'updateTask');
     });
   }
 

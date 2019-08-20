@@ -62,8 +62,8 @@
     },
     {
       "id": 11,
-      "title": "Priorität selectbox erstellen (High, middle, low, important)  ",
-      "done": true,
+      "title": "Design bearbeiten",
+      "done": false,
       "priority": "Hoch"
     },
     {

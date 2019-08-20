@@ -58,10 +58,8 @@ export class TaskFormComponent implements OnInit, OnDestroy {
         tempTask.subscribe((task) => {
           this.task = task;
         }, (error: HttpErrorResponse) => {
-          this.errorHandler.getResponseError(error);
+          this.errorHandler.getResponseError(error, 'ngOnInit', 'getById');
         });
-      }, (error: HttpErrorResponse) => {
-        this.errorHandler.getResponseError(error);
       });
   }
 
@@ -81,12 +79,12 @@ export class TaskFormComponent implements OnInit, OnDestroy {
         }, (error: HttpErrorResponse) => {
           this.isError = true;
           this.message = errorTask.add;
-          this.errorHandler.getResponseError(error);
+          this.errorHandler.getResponseError(error, 'saveTaskItem', 'getLastTaskId');
         });
       }, (error: HttpErrorResponse) => {
         // Error output?
         this.isError = true;
-        this.errorHandler.getResponseError(error);
+        this.errorHandler.getResponseError(error, 'saveTaskItem', 'createTask');
       });
       
     } else {
@@ -95,11 +93,10 @@ export class TaskFormComponent implements OnInit, OnDestroy {
         this.task = task;
         this.message = successTask.edit;
         this.messageHandler.chanceMessage(this.message, previousUrl);
-
       }, (error: HttpErrorResponse) => {
         this.isError = true;
         this.message = errorTask.edit;
-        this.errorHandler.getResponseError(error);
+        this.errorHandler.getResponseError(error, 'saveTaskItem', 'updateTask');
       });
     }
   }
